@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>CMK Productions</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+        
+<!--
+CMK Productions
+
+https://CMK-Productions
+
+-->
+    </head>
+    
+    <body>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">                
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    
+                        <span class="navbar-brand-text">
+                            CMK
+                            <small>Music Productions</small>
+                        </span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-3">
+                        <a class="btn custom-btn custom-border-btn" href="#" onclick="openMemberLogin(event)">Member Login</a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Membership</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Events</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block ms-lg-3">
+                            <a class="btn custom-btn custom-border-btn" href="#" onclick="openMemberLogin(event)">Member Login</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- MEMBER LOGIN MODAL -->
+            <div id="memberLoginOverlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,10,20,0.75); backdrop-filter:blur(6px); align-items:center; justify-content:center;">
+                <div id="memberLoginModal" style="background:linear-gradient(145deg,#1a1c2e,#2a2d45); border:1px solid rgba(129,178,154,0.3); border-radius:20px; padding:0; width:90%; max-width:420px; box-shadow:0 30px 80px rgba(0,0,0,0.6); overflow:hidden; transform:translateY(30px); opacity:0; transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+                    <!-- Modal Header -->
+                    <div style="background:linear-gradient(135deg,#3D405B,#2a2d45); padding:30px 32px 24px; position:relative; border-bottom:1px solid rgba(129,178,154,0.2);">
+                        <button onclick="closeMemberLogin()" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.1); border:none; color:#fff; width:32px; height:32px; border-radius:50%; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:42px; height:42px; background:linear-gradient(135deg,#81B29A,#5a9478); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px;">🎵</div>
+                            <div>
+                                <h5 style="color:#fff; margin:0; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.1rem;">CMK Member Portal</h5>
+                                <p style="color:rgba(255,255,255,0.5); margin:0; font-size:0.8rem;">Sign in to your account</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab Switcher -->
+                    <div style="display:flex; background:#141627; border-bottom:1px solid rgba(129,178,154,0.15);">
+                        <button id="tabLogin" onclick="switchTab('login')" style="flex:1; padding:14px; background:none; border:none; color:#81B29A; font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer; border-bottom:2px solid #81B29A; transition:all 0.2s;">Sign In</button>
+                        <button id="tabRegister" onclick="switchTab('register')" style="flex:1; padding:14px; background:none; border:none; color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s;">Join CMK</button>
+                    </div>
+                    <!-- Login Form -->
+                    <div id="formLogin" style="padding:28px 32px;">
+                        <div style="margin-bottom:18px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">EMAIL ADDRESS</label>
+                            <div style="position:relative;">
+                                <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.3); font-size:14px;">✉</span>
+                                <input type="email" placeholder="yourname@email.com" style="width:100%; padding:12px 14px 12px 38px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box; transition:border 0.2s;" onfocus="this.style.border='1px solid #81B29A'" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'">
+                            </div>
+                        </div>
+                        <div style="margin-bottom:10px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">PASSWORD</label>
+                            <div style="position:relative;">
+                                <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.3); font-size:14px;">🔒</span>
+                                <input type="password" id="loginPwd" placeholder="••••••••" style="width:100%; padding:12px 40px 12px 38px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box; transition:border 0.2s;" onfocus="this.style.border='1px solid #81B29A'" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'">
+                                <button onclick="togglePwd('loginPwd',this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.3); cursor:pointer; font-size:13px; padding:2px;">👁</button>
+                            </div>
+                        </div>
+                        <div style="text-align:right; margin-bottom:22px;">
+                            <a href="#" style="color:#81B29A; font-size:0.8rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Forgot password?</a>
+                        </div>
+                        <button onclick="handleLogin()" style="width:100%; padding:14px; background:linear-gradient(135deg,#81B29A,#5a9478); border:none; border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; cursor:pointer; transition:opacity 0.2s; letter-spacing:0.5px;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Sign In →</button>
+                        <div id="loginMsg" style="margin-top:14px; text-align:center; font-size:0.85rem; font-family:'DM Sans',sans-serif; min-height:20px; color:rgba(255,255,255,0.5);">Don't have an account? <a href="dashboard.html" style="color:#81B29A;">Join CMK →</a></div>
+                        <div style="margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); text-align:center;">
+                            <p style="color:rgba(255,255,255,0.3); font-size:0.8rem; font-family:'DM Sans',sans-serif; margin:0 0 12px;">Or continue with</p>
+                            <div style="display:flex; gap:10px; justify-content:center;">
+                                <button style="flex:1; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:rgba(255,255,255,0.7); font-size:0.8rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">🌐 Google</button>
+                                <button style="flex:1; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:rgba(255,255,255,0.7); font-size:0.8rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">📘 Facebook</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Register Form -->
+                    <div id="formRegister" style="padding:28px 32px; display:none;">
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">FULL NAME</label>
+                            <input type="text" placeholder="Your full name" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box; transition:border 0.2s;" onfocus="this.style.border='1px solid #81B29A'" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'">
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">EMAIL ADDRESS</label>
+                            <input type="email" placeholder="yourname@email.com" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box; transition:border 0.2s;" onfocus="this.style.border='1px solid #81B29A'" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'">
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">YOUR ROLE</label>
+                            <select style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:rgba(255,255,255,0.7); font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                                <option value="" style="background:#2a2d45;">Select your role...</option>
+                                <option value="artist" style="background:#2a2d45;">🎤 Artist</option>
+                                <option value="producer" style="background:#2a2d45;">🎛 Producer</option>
+                                <option value="fan" style="background:#2a2d45;">🎶 Fan / Supporter</option>
+                                <option value="brand" style="background:#2a2d45;">🏢 Brand / Partner</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom:22px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; font-family:'DM Sans',sans-serif; display:block; margin-bottom:6px;">CREATE PASSWORD</label>
+                            <div style="position:relative;">
+                                <input type="password" id="regPwd" placeholder="Min. 8 characters" style="width:100%; padding:12px 40px 12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; outline:none; box-sizing:border-box; transition:border 0.2s;" onfocus="this.style.border='1px solid #81B29A'" onblur="this.style.border='1px solid rgba(255,255,255,0.1)'">
+                                <button onclick="togglePwd('regPwd',this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.3); cursor:pointer; font-size:13px; padding:2px;">👁</button>
+                            </div>
+                        </div>
+                        <button style="width:100%; padding:14px; background:linear-gradient(135deg,#81B29A,#5a9478); border:none; border-radius:10px; color:#fff; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; cursor:pointer; transition:opacity 0.2s; letter-spacing:0.5px;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Join the Family →</button>
+                        <p style="color:rgba(255,255,255,0.3); font-size:0.75rem; font-family:'DM Sans',sans-serif; text-align:center; margin-top:14px;">By joining you agree to CMK's terms & privacy policy.</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <span class="hero-eyebrow">CMK Music Productions</span>
+                            <h2 class="text-white hero-welcome mt-2">Welcome to CMK</h2>
+
+                            <h1 class="cd-headline rotate-1 text-white mb-4 pb-2">
+                                <span>We are </span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Excellent</b>
+                                    <b>Reliable</b>
+                                    <b>Professional</b>
+                                </span>
+                            </h1>
+
+                            <p class="hero-tagline text-white mb-4">From studio to stage — crafting unforgettable sound for artists, brands, and the moments that move us.</p>
+
+                            <div class="custom-btn-group">
+                                <a href="#section_2" class="btn custom-btn smoothscroll me-3">Our Story</a>
+
+                                <a href="#section_3" class="link smoothscroll">Join the Family <span aria-hidden="true">&rarr;</span></a>
+                            </div>
+                        </div>
+
+                            <div class="col-lg-6 col-12">
+                            <div class="ratio ratio-16x9">
+                                <iframe 
+                                    width="560" 
+                                    height="315" 
+                                    src="https://www.youtube.com/embed/eZP8fkl6OGI?si=tQrgVMonf46Gx0Jv" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+            </section>
+
+
+            <section class="about-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center mb-lg-5 mb-4">
+                            <span class="section-eyebrow">Our Story</span>
+                            <h2 class="section-title mt-2">About CMK</h2>
+                            <div class="section-divider mx-auto"></div>
+                        </div>
+
+                        <div class="col-lg-5 col-12 me-auto mb-5 mb-lg-0">
+                            <h3 class="mb-3">CMK Music Production</h3>
+
+                            <p>At <strong>CMK Music Production</strong>, we believe music is more than sound — it&rsquo;s a story, a heartbeat, and a bridge between people. Founded by passionate producers and sound engineers, CMK is built on the vision of elevating African and global sound through creativity, precision, and authenticity.</p>
+
+                            <p>From intimate studio sessions to large-scale productions, CMK specializes in music production, recording, mixing &amp; mastering, live sound design, and artist development. Our focus is to turn every concept into a sonic experience that speaks to the soul and resonates with audiences worldwide.</p>
+
+                            <p>Our team has worked with emerging and established artists, crafting signature sounds across genres — from hip-hop, R&amp;B, and gospel, to amapiano and Afro-fusion. Whether you&rsquo;re a solo artist looking to record your next hit, or a brand in need of cinematic sound for your next campaign, CMK is your creative partner in sound.</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/4.png" class="member-block-image img-fluid" alt="">
+
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-twitter"></a>
+                                        </li>
+
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Cedric</h4>
+
+                                    <p class="ms-auto">Founder</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/1.png" class="member-block-image img-fluid" alt="">
+
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-linkedin"></a>
+                                        </li>
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-twitter"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Myriame</h4>
+
+                                    <p class="ms-auto">Artist</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ══ SINGLE LAUNCH ANNOUNCEMENT ══ -->
+            <section class="single-announce-section">
+                <div class="container">
+                    <div class="single-announce-inner">
+
+                        <!-- Animated pulse ring -->
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay"></div>
+
+                        <!-- Badge -->
+                        <div class="announce-badge">OUT NOW</div>
+
+                        <!-- Text -->
+                        <h2 class="announce-title">Latest Single</h2>
+                        <p class="announce-artist">ft. <strong>Pastor Mike Flor</strong></p>
+                        <p class="announce-sub">The new single is here — watch the official video now</p>
+
+                        <!-- CTA Button -->
+                        <button class="announce-cta" onclick="openVp()">
+                            <span class="cta-play">▶</span> Watch the Video
+                        </button>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ VIDEO POPUP MODAL (legacy, hidden) ══ -->
+            <div id="videoPopupOverlay" onclick="handleOverlayClick(event)" style="display:none;"></div>
+
+            <style>
+                /* ── ANNOUNCEMENT SECTION ── */
+                .single-announce-section {
+                    background: linear-gradient(135deg, #1a1c2e 0%, #2a2d45 50%, #1a1c2e 100%);
+                    padding: 60px 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .single-announce-section::before {
+                    content: '';
+                    position: absolute; inset: 0;
+                    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(129,178,154,0.08) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                .single-announce-inner {
+                    text-align: center;
+                    position: relative;
+                    padding: 20px;
+                }
+
+                /* Pulse rings */
+                .pulse-ring {
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 300px; height: 300px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(129,178,154,0.2);
+                    animation: pulseRing 3s ease-out infinite;
+                    pointer-events: none;
+                }
+                .pulse-ring.delay { animation-delay: 1.5s; }
+
+                @keyframes pulseRing {
+                    0%   { transform: translate(-50%,-50%) scale(0.6); opacity: 0.6; }
+                    100% { transform: translate(-50%,-50%) scale(1.4); opacity: 0; }
+                }
+
+                .announce-badge {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #81B29A, #5a9478);
+                    color: #fff;
+                    font-size: 0.72rem; font-weight: 800;
+                    letter-spacing: 0.12em;
+                    padding: 5px 16px; border-radius: 20px;
+                    margin-bottom: 18px;
+                    animation: badgePop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+                }
+
+                @keyframes badgePop {
+                    from { transform: scale(0.5); opacity: 0; }
+                    to   { transform: scale(1); opacity: 1; }
+                }
+
+                .announce-title {
+                    font-family: 'Playfair Display', 'DM Sans', serif;
+                    font-size: 2.8rem; font-weight: 900;
+                    color: #fff;
+                    line-height: 1.1;
+                    margin-bottom: 6px;
+                    animation: fadeSlideUp 0.7s ease both;
+                    animation-delay: 0.1s;
+                }
+
+                .announce-artist {
+                    font-size: 1.15rem;
+                    color: #81B29A;
+                    margin-bottom: 10px;
+                    animation: fadeSlideUp 0.7s ease both;
+                    animation-delay: 0.2s;
+                }
+
+                .announce-sub {
+                    color: rgba(255,255,255,0.5);
+                    font-size: 0.9rem;
+                    margin-bottom: 30px;
+                    animation: fadeSlideUp 0.7s ease both;
+                    animation-delay: 0.3s;
+                }
+
+                @keyframes fadeSlideUp {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+
+                .announce-cta {
+                    display: inline-flex; align-items: center; gap: 10px;
+                    background: linear-gradient(135deg, #81B29A, #5a9478);
+                    color: #fff; border: none;
+                    padding: 14px 36px; border-radius: 50px;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 1rem; font-weight: 700;
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                    box-shadow: 0 8px 28px rgba(129,178,154,0.35);
+                    animation: fadeSlideUp 0.7s ease both;
+                    animation-delay: 0.4s;
+                }
+
+                .announce-cta:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 14px 36px rgba(129,178,154,0.5);
+                }
+
+                .cta-play {
+                    width: 28px; height: 28px;
+                    background: rgba(255,255,255,0.2);
+                    border-radius: 50%;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 11px;
+                }
+
+                /* ── POPUP OVERLAY ── */
+                #videoPopupOverlay {
+                    display: none;
+                    position: fixed; inset: 0; z-index: 9999;
+                    background: rgba(5, 6, 18, 0.88);
+                    backdrop-filter: blur(8px);
+                    align-items: center; justify-content: center;
+                    padding: 20px;
+                }
+
+                #videoPopupOverlay.open {
+                    display: flex;
+                    animation: overlayIn 0.3s ease;
+                }
+
+                @keyframes overlayIn {
+                    from { opacity: 0; }
+                    to   { opacity: 1; }
+                }
+
+                .vp-container {
+                    position: relative;
+                    width: 100%; max-width: 760px;
+                    background: linear-gradient(160deg, #20243a, #1a1d30);
+                    border-radius: 20px;
+                    overflow: hidden;
+                    box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+                    animation: popIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both;
+                    border: 1px solid rgba(129,178,154,0.25);
+                }
+
+                @keyframes popIn {
+                    from { transform: scale(0.85) translateY(30px); opacity: 0; }
+                    to   { transform: scale(1) translateY(0); opacity: 1; }
+                }
+
+                @keyframes popOut {
+                    from { transform: scale(1) translateY(0); opacity: 1; }
+                    to   { transform: scale(0.88) translateY(20px); opacity: 0; }
+                }
+
+                /* Animated glow border */
+                .vp-glow {
+                    position: absolute; inset: -1px;
+                    border-radius: 21px;
+                    background: linear-gradient(135deg, #81B29A, #3D405B, #81B29A, #E8C07D);
+                    background-size: 300% 300%;
+                    animation: glowMove 4s ease infinite;
+                    z-index: -1;
+                    opacity: 0.5;
+                }
+
+                @keyframes glowMove {
+                    0%   { background-position: 0% 50%; }
+                    50%  { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+
+                .vp-header {
+                    display: flex; align-items: center; justify-content: space-between;
+                    padding: 16px 20px;
+                    background: rgba(0,0,0,0.3);
+                    border-bottom: 1px solid rgba(129,178,154,0.15);
+                    gap: 12px;
+                }
+
+                .vp-header-left {
+                    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+                }
+
+                .vp-badge {
+                    background: linear-gradient(135deg, #81B29A, #5a9478);
+                    color: #fff; font-size: 0.68rem; font-weight: 800;
+                    letter-spacing: 0.1em; padding: 4px 12px; border-radius: 14px;
+                    white-space: nowrap;
+                }
+
+                .vp-title {
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.92rem; font-weight: 700; color: #f0f2f8;
+                }
+
+                .vp-close {
+                    width: 34px; height: 34px;
+                    background: rgba(255,255,255,0.08);
+                    border: 1px solid rgba(255,255,255,0.12);
+                    border-radius: 50%; color: #f0f2f8;
+                    font-size: 14px; cursor: pointer;
+                    display: flex; align-items: center; justify-content: center;
+                    transition: all 0.2s; flex-shrink: 0;
+                }
+
+                .vp-close:hover {
+                    background: rgba(248,113,113,0.2);
+                    border-color: rgba(248,113,113,0.5);
+                    color: #f87171;
+                    transform: rotate(90deg);
+                }
+
+                .vp-video-wrap {
+                    background: #000;
+                    line-height: 0;
+                }
+
+                .vp-footer {
+                    display: flex; align-items: center; justify-content: space-between;
+                    padding: 14px 20px; flex-wrap: wrap; gap: 10px;
+                    background: rgba(0,0,0,0.2);
+                }
+
+                .vp-footer-text {
+                    color: rgba(255,255,255,0.4); font-size: 0.8rem;
+                    font-family: 'DM Sans', sans-serif;
+                }
+
+                .vp-yt-btn {
+                    display: inline-flex; align-items: center; gap: 7px;
+                    background: linear-gradient(135deg, #81B29A, #5a9478);
+                    color: #fff; text-decoration: none;
+                    padding: 9px 22px; border-radius: 22px;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.83rem; font-weight: 700;
+                    transition: opacity 0.2s, transform 0.15s;
+                }
+
+                .vp-yt-btn:hover { opacity: 0.88; transform: translateY(-1px); color: #fff; }
+
+                @media (max-width: 600px) {
+                    .announce-title { font-size: 2rem; }
+                    .vp-title { display: none; }
+                }
+            </style>
+
+            <script>
+                function openVideoPopup() {
+                    const overlay = document.getElementById('videoPopupOverlay');
+                    overlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    // Auto play video
+                    const vid = document.getElementById('popupVideo');
+                    if (vid) { vid.currentTime = 0; vid.play(); }
+                }
+
+                function closeVideoPopup() {
+                    const overlay = document.getElementById('videoPopupOverlay');
+                    const container = document.getElementById('vpContainer');
+                    // Animate out
+                    container.style.animation = 'popOut 0.3s ease forwards';
+                    setTimeout(() => {
+                        overlay.classList.remove('open');
+                        container.style.animation = '';
+                        document.body.style.overflow = '';
+                        const vid = document.getElementById('popupVideo');
+                        if (vid) vid.pause();
+                    }, 280);
+                }
+
+                function handleOverlayClick(e) {
+                    if (e.target === document.getElementById('videoPopupOverlay')) closeVideoPopup();
+                }
+            </script>
+
+
+            <!-- ══ VIDEO POPUP ══ -->
+            <div id="vpOverlay" onclick="handleVpClick(event)" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,6,18,0.9);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
+                <div id="vpBox" style="position:relative;width:100%;max-width:800px;background:linear-gradient(160deg,#20243a,#1a1d30);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.7);border:1px solid rgba(129,178,154,0.2);animation:vpPopIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(0,0,0,0.35);border-bottom:1px solid rgba(129,178,154,0.15);gap:12px;">
+                        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                            <span style="background:linear-gradient(135deg,#81B29A,#5a9478);color:#fff;font-size:0.68rem;font-weight:800;letter-spacing:0.1em;padding:4px 12px;border-radius:14px;white-space:nowrap;">🔥 OUT NOW</span>
+                            <span style="font-size:0.92rem;font-weight:700;color:#f0f2f8;font-family:'DM Sans',sans-serif;">BERGER — Myriame Musuamba ft. Mike Flor</span>
+                        </div>
+                        <button id="vpCloseBtn" style="width:34px;height:34px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:50%;color:#f0f2f8;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='rgba(248,113,113,0.2)';this.style.color='#f87171';" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='#f0f2f8';" onclick="closeVp()">✕</button>
+                    </div>
+                    <div style="background:#000;line-height:0;">
+                        <video id="vpVideo" controls playsinline preload="metadata" style="width:100%;display:block;max-height:460px;object-fit:contain;">
+                            <source src="images/Out%20now.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;flex-wrap:wrap;gap:10px;background:rgba(0,0,0,0.2);">
+                        <span style="color:rgba(255,255,255,0.35);font-size:0.8rem;font-family:'DM Sans',sans-serif;">🎵 CMK Music Productions</span>
+                        <a href="https://youtu.be/F-gj-1icC-Y?si=W3wtmmVGAJL7O736" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#81B29A,#5a9478);color:#fff;text-decoration:none;padding:9px 22px;border-radius:22px;font-family:'DM Sans',sans-serif;font-size:0.83rem;font-weight:700;">▶ Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                @keyframes vpPopIn  { from{transform:scale(0.85) translateY(30px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+                @keyframes vpPopOut { from{transform:scale(1) translateY(0);opacity:1} to{transform:scale(0.88) translateY(20px);opacity:0} }
+                #vpOverlay.vp-open { display:flex !important; animation:vpFadeIn 0.3s ease; }
+                @keyframes vpFadeIn { from{opacity:0} to{opacity:1} }
+            </style>
+
+            <section class="section-bg-image">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <div class="section-bg-image-block">
+                                <h2 class="mb-lg-3">We are the best in the business.</h2>
+
+                                <p>From studio to stage, we make your music stand out. Producing tomorrow’s sound today. Join the movement today.
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+            </section>
+
+
+            <section class="membership-section section-padding" id="section_3">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+                            <span class="section-eyebrow">Membership</span>
+                            <h2 class="section-title mt-2"><span>Join</span> CMK Productions</h2>
+                            <div class="section-divider mx-auto"></div>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                            <h4 class="mb-4 pb-lg-2">Choose a plan suitable for your success</h4>
+
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 34%;">Services</th>
+                                            
+                                            <th style="width: 22%;">Starter Plan</th>
+                                            
+                                            <th style="width: 22%;">Professional Plan</th>
+                                            
+                                            <th style="width: 22%;">Elite Plan</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="text-start">Artist Management</th>
+                                            
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                            
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                            
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Concert & Event Production</th>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Studio Access</th>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Music Distribution</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Brand Development</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th scope="row" class="text-start">Networking & Industry Access</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-12 mx-auto">
+                        <h4 class="mb-4 pb-lg-2">Join the CMK Family</h4>
+                            <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+                                <h4 class="text-white mb-4">Become part of a growing community of artists, producers, and creatives who trust CMK Productions to elevate their music careers.</h4>
+
+                                    <div class="form-floating">
+                                        <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+                                        
+                                        <label for="floatingInput">Full Name</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+                                        
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
+
+                                        <label for="floatingTextarea"> Comments</label>
+                                    </div>
+
+                                    <button type="submit" class="form-control">Submit</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="events-section section-bg section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 mb-5 text-center">
+                            <span class="section-eyebrow">Highlights</span>
+                            <h2 class="section-title mt-2 mb-2">Past Events</h2>
+                            <p class="events-subtitle">Relive the moments that moved us.</p>
+                            <div class="section-divider mx-auto"></div>
+                        </div>
+
+                        <!-- Past Event 1: Move of God Album Launch -->
+                        <div class="row custom-block past-event mb-4">
+                            <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                                <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                                    <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">21</h6>
+                                    <strong class="text-white">Feb 2026</strong>
+                                    <span class="past-badge">Past</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                                <div class="custom-block-image-wrap past-image">
+                                    <img src="images/themaingod.jpg" class="custom-block-image img-fluid" alt="The Main God Album">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 order-3 order-lg-0">
+                                <div class="custom-block-info mt-2 mt-lg-0">
+                                    <span class="events-title mb-3" style="cursor:default;">The Move of God Album Launch</span>
+                                    <p class="mb-0">The official launch of <em>The Main God</em> album — an unforgettable evening of praise, worship, and the presence of God in Cape Town.</p>
+
+                                    <div class="d-flex flex-wrap border-top mt-4 pt-3">
+                                        <div class="mb-4 mb-lg-0">
+                                            <div class="d-flex flex-wrap align-items-center mb-1">
+                                                <span class="custom-block-span">Location:</span>
+                                                <p class="mb-0">Cape Town, South Africa</p>
+                                            </div>
+                                            <div class="d-flex flex-wrap align-items-center">
+                                                <span class="custom-block-span">Ticket:</span>
+                                                <p class="mb-0">R300 — Event Concluded</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Past Event 2: National Concert JHB -->
+                        <div class="row custom-block past-event mb-5">
+                            <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                                <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                                    <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">6&nbsp;&amp;&nbsp;7</h6>
+                                    <strong class="text-white">Feb 2026</strong>
+                                    <span class="past-badge">Past</span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                                <div class="custom-block-image-wrap past-image">
+                                    <img src="images/jhb.jpg" class="custom-block-image img-fluid" alt="National Concert JHB">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 order-3 order-lg-0">
+                                <div class="custom-block-info mt-2 mt-lg-0">
+                                    <span class="events-title mb-3" style="cursor:default;">National Concert — Johannesburg</span>
+                                    <p class="mb-0">Two power-packed days of praise and worship that shook Johannesburg. Thank you to everyone who was part of this move of God.</p>
+
+                                    <div class="d-flex flex-wrap border-top mt-4 pt-3">
+                                        <div class="mb-4 mb-lg-0">
+                                            <div class="d-flex flex-wrap align-items-center mb-1">
+                                                <span class="custom-block-span">Location:</span>
+                                                <p class="mb-0">Johannesburg, South Africa</p>
+                                            </div>
+                                            <div class="d-flex flex-wrap align-items-center">
+                                                <span class="custom-block-span">Status:</span>
+                                                <p class="mb-0">Event Concluded</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The Main God Album Video -->
+                        <div class="col-lg-12 col-12 mt-2">
+                            <div style="background:linear-gradient(135deg,rgba(61,64,91,0.6),rgba(42,45,69,0.8)); border:1px solid rgba(129,178,154,0.25); border-radius:16px; padding:32px 32px 24px; backdrop-filter:blur(4px);">
+                                <div class="d-flex align-items-center mb-3" style="gap:12px;">
+                                    <div style="width:4px; height:32px; background:linear-gradient(#81B29A,#5a9478); border-radius:4px;"></div>
+                                    <div>
+                                        <h4 style="color:#fff; margin:0; font-family:'DM Sans',sans-serif; font-weight:700;">The Main God — Official Album</h4>
+                                        <p style="color:rgba(255,255,255,0.5); margin:0; font-size:0.85rem;">Watch the full album on YouTube</p>
+                                    </div>
+                                </div>
+                                <div style="border-radius:12px; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.5);">
+                                    <video controls style="width:100%; display:block; max-height:500px; background:#000;" preload="metadata">
+                                        <source src="images/VID-20260404-WA0058.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Highlight MP4 Video -->
+                        <div class="col-lg-12 col-12 mt-4">
+                            <div style="background:linear-gradient(135deg,rgba(61,64,91,0.6),rgba(42,45,69,0.8)); border:1px solid rgba(129,178,154,0.25); border-radius:16px; padding:32px 32px 24px; backdrop-filter:blur(4px);">
+                                <div class="d-flex align-items-center mb-3" style="gap:12px;">
+                                    <div style="width:4px; height:32px; background:linear-gradient(#81B29A,#5a9478); border-radius:4px;"></div>
+                                    <div>
+                                        <h4 style="color:#fff; margin:0; font-family:'DM Sans',sans-serif; font-weight:700;"> Latest Single</h4>
+                                        <p style="color:rgba(255,255,255,0.5); margin:0; font-size:0.85rem;">CMK Productions presents "BERGER"</p>
+                                    </div>
+                                </div>
+                                <div style="border-radius:12px; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.5);">
+                                    <video controls style="width:100%; display:block; max-height:500px; background:#000;" preload="metadata">
+                                        <source src="images/Out%20now.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+
+<!-- IMAGE SLIDESHOW -->
+                        <div class="col-lg-12 col-12 mt-5">
+                            <div class="pic-ctn">
+                                <img src="images/event1.jpeg" alt="" class="pic">
+                                <img src="images/event2.jpeg" alt="" class="pic">
+                                <img src="images/event3.jpeg" alt="" class="pic">
+                                <img src="images/event4.jpeg" alt="" class="pic">
+                                <img src="images/event5.jpeg" alt="" class="pic">
+                                <img src="images/event6.jpeg" alt="" class="pic">
+                                <img src="images/event7.jpeg" alt="" class="pic">
+                                <img src="images/event8.jpeg" alt="" class="pic">
+                                <img src="images/event9.jpeg" alt="" class="pic">
+                                <img src="images/event10.jpeg" alt="" class="pic">
+                                <img src="images/event11.jpeg" alt="" class="pic">
+                                <img src="images/event12.jpeg" alt="" class="pic">
+                                <img src="images/event13.jpeg" alt="" class="pic">
+                                <img src="images/event14.jpeg" alt="" class="pic">
+                                <img src="images/event15.jpeg" alt="" class="pic">
+                                <img src="images/event16.jpeg" alt="" class="pic">
+                                <img src="images/event17.jpeg" alt="" class="pic">
+                                <img src="images/event18.jpeg" alt="" class="pic">
+                                <img src="images/event19.jpeg" alt="" class="pic">
+                                <img src="images/event20.jpeg" alt="" class="pic">
+                                <img src="images/event21.jpeg" alt="" class="pic">
+                            </div>
+                            <div class="pic-ctn-label">
+                                <span>📸 Event Highlights</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section section-padding" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12">
+                            <form 
+                            name="contact" method="get" data-netlify="true" onsubmit="submit"
+                            action="#" method="post" class="custom-form contact-form" role="form">
+                                <h2 class="mb-4 pb-2">Contact Admin</h2>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="" name="name">
+                                            
+                                            <label for="floatingInput">Full Name</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12"> 
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="" name="email">
+                                            
+                                            <label for="floatingInput">Email address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
+                                            
+                                            <label for="floatingTextarea">Message</label>
+                                        </div>
+
+                                        <button type="submit" class="form-control">Submit Form</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="contact-info mt-5">
+                                <div class="contact-info-item">
+                                    <div class="contact-info-body">
+                                        <strong>Cape Town, South Africa</strong>
+
+                                        <p class="mt-2 mb-1">
+                                            <a href="tel: 010-020-0340" class="contact-link">
+                                               +27 61 436 9693
+                                            </a>
+                                        </p>
+
+                                        <p class="mb-0">
+                                            <a href="mailto:info@company.com" class="contact-link">
+                                                kabalacedrick@gmail.com
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-info-footer">
+                                        <a href="#">Directions</a>
+                                    </div>
+                                </div>
+
+                                <img src="images/WorldMap.svg" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/cmk logo.png" class="navbar-brand-image img-fluid" alt="CMK Productions logo">
+                            <span class="navbar-brand-text">
+                                CMK
+                                <small>Music Productions</small>
+                            </span>
+                        </a>
+                        <p class="footer-tagline mt-3">Crafting the sound of tomorrow — from intimate studio sessions to stadium-scale productions.</p>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Studio Hours</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span>Mon&ndash;Fri</span>
+                            6:00 AM &ndash; 6:00 PM
+                        </p>
+
+                        <p class="d-flex me-lg-3">
+                            <span>Sat&ndash;Sun</span>
+                            6:30 AM &ndash; 8:30 PM
+                        </p>
+                        <br>
+                        <p class="copyright-text">© 2026 CMK Music Productions</p>
+                    </div>
+
+                        <div class="col-lg-2 col-12 ms-auto">
+                            <ul class="social-icon mt-lg-5 mt-3 mb-4">
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-facebook"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-youtube"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+                            <p class="copyright-text">Design: <a rel="nofollow" href="https://mdkfastprint.com" target="_blank">MDK Fast Print</a></p>
+                            
+                        </div>
+
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/animated-headline.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script>
+            function openMemberLogin(e) {
+                e.preventDefault();
+                var overlay = document.getElementById('memberLoginOverlay');
+                var modal = document.getElementById('memberLoginModal');
+                overlay.style.display = 'flex';
+                setTimeout(function() {
+                    modal.style.transform = 'translateY(0)';
+                    modal.style.opacity = '1';
+                }, 10);
+            }
+            function closeMemberLogin() {
+                var overlay = document.getElementById('memberLoginOverlay');
+                var modal = document.getElementById('memberLoginModal');
+                modal.style.transform = 'translateY(30px)';
+                modal.style.opacity = '0';
+                setTimeout(function() { overlay.style.display = 'none'; }, 350);
+            }
+            document.getElementById('memberLoginOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeMemberLogin();
+            });
+            function switchTab(tab) {
+                var isLogin = tab === 'login';
+                document.getElementById('formLogin').style.display = isLogin ? 'block' : 'none';
+                document.getElementById('formRegister').style.display = isLogin ? 'none' : 'block';
+                document.getElementById('tabLogin').style.color = isLogin ? '#81B29A' : 'rgba(255,255,255,0.4)';
+                document.getElementById('tabLogin').style.borderBottomColor = isLogin ? '#81B29A' : 'transparent';
+                document.getElementById('tabRegister').style.color = isLogin ? 'rgba(255,255,255,0.4)' : '#81B29A';
+                document.getElementById('tabRegister').style.borderBottomColor = isLogin ? 'transparent' : '#81B29A';
+            }
+            function togglePwd(id, btn) {
+                var input = document.getElementById(id);
+                var show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                btn.textContent = show ? '🙈' : '👁';
+            }
+            function handleLogin() {
+                var msg = document.getElementById('loginMsg');
+                msg.style.color = '#81B29A';
+                msg.textContent = '✓ Redirecting to your dashboard...';
+                setTimeout(function() { window.location.href = 'dashboard.html'; }, 900);
+            }
+        </script>
+
+        <script>
+            function openVp() {
+                var o = document.getElementById('vpOverlay');
+                var b = document.getElementById('vpBox');
+                o.style.display = 'flex';
+                b.style.animation = 'vpPopIn 0.45s cubic-bezier(0.34,1.56,0.64,1) both';
+                document.body.style.overflow = 'hidden';
+                var v = document.getElementById('vpVideo');
+                if(v){v.currentTime=0;v.play();}
+            }
+            function closeVp() {
+                var b = document.getElementById('vpBox');
+                var o = document.getElementById('vpOverlay');
+                b.style.animation = 'vpPopOut 0.3s ease forwards';
+                setTimeout(function(){
+                    o.style.display = 'none';
+                    b.style.animation = '';
+                    document.body.style.overflow = '';
+                    var v = document.getElementById('vpVideo');
+                    if(v) v.pause();
+                }, 280);
+            }
+            function handleVpClick(e){
+                if(e.target === document.getElementById('vpOverlay')) closeVp();
+            }
+        </script>
+    </body>
+</html>
